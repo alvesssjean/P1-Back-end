@@ -17,7 +17,7 @@ def list_transations():
 
     return transations
 
-#POST - CREATE USER
+#POST - CREATE TRANSATION
 @router.post("/transations")
 def create_transation(transation: BankTransations):
     transations_dict = transation.model_dump()
@@ -28,7 +28,7 @@ def create_transation(transation: BankTransations):
         "id": str(result.inserted_id)
     } 
 
-#GET - USER BY ID
+#GET - TRANSATION BY ID
 
 @router.get("/transations/{transation_id}")
 def get_transation(transation_id: str):
@@ -44,7 +44,7 @@ def get_transation(transation_id: str):
 
 #UPDATE
 @router.put("/transations/{transation_id}")
-def update_user(transation: BankTransations, transation_id: str):
+def update_transation(transation: BankTransations, transation_id: str):
     transation_dict = transation.model_dump()
     result = transations_collection.update_one(
         {"_id": ObjectId(transation_id)},
