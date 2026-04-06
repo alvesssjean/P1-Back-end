@@ -53,7 +53,7 @@ def update_transation(transation: BankTransations, transation_id: str):
     if result.matched_count ==0:
         return {"error": "transation not found"}
     else:
-        return {"message": "user updated succesfly"}
+        return {"message": "transation updated succesfly"}
 
 #DELETE
 @router.delete("/transations/{transation_id}")
@@ -63,4 +63,4 @@ def delete_transation(transation_id: str):
     )
     if result.deleted_count == 0:
         return {"error": "transation not found"}
-    return {"message":"user deleted"}
+    return {"message":"transation deleted"}
